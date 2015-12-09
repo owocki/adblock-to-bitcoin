@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>adblock-to-bitcoin</title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <style type="text/css">
+        /* bitcoinaddress css styles */
+        body {
+            padding-top: 60px;
+        }
+
+        /* http://davidwalsh.name/html5-hidden */
+        *[hidden] { display: none; }
+
+        /* Action hints are slidedowns, hidden by default */
+        .bitcoin-action-hint {
+            display: none;
+        }
+
+        /* Show dashed underlining so people get a hint it's clickable */
+        .bitcoin-address-container .bitcoin-address {
+            border-bottom: 1px dashed gray;
+            cursor: pointer;
+        }
+
+        /* Center QR code image */
+        .bitcoin-address-qr-container > img,
+        .bitcoin-address-qr-container > canvas {
+            margin: 0 auto;
+        }
+
+        /* bitcoinprices.js -  for bitcoinprices, donation nominated in USD */
+        .clickable-price {
+            cursor: pointer;
+            border-bottom: 1px #888 dashed;
+        }
+
+        /* Demo page splash styling */
+        #bitcoin-icon {
+            font-size: 128px;
+            color: #F7931A;
+        }
+
+        #bitcoin-icon .fa-circle {
+            text-shadow: 0 3px 3px rgba(32, 32, 32, 0.3);
+        }
+        .example-row {
+            margin: 30px 0;
+        }
+
+        .example-heading {
+            color: #357ebd;
+        }
+
+        /* adblock-to-bitcoin sizes */
+        .ad_container {
+
+        }
+        .bitcoin_solicitation{
+            display:none;
+        }
+        .bitcoin_solicitation.adblock_enabled{
+            display:block;
+            background-color: #f5f5f5;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            padding: 6px;
+            text-align:center;
+        }
+        .bitcoin_solicitation.leaderboard,{
+            width: 728px;
+            height: 90px;
+        }
+        .bitcoin_solicitation.large-rectangle{
+            padding-top: 10% ;
+            padding-bottom: 10% ;
+            width: 336px;
+            height: 280px;
+        }
+        .bitcoin_solicitation.mobile-banner{
+            width: 320px;
+            height: 100px;
+            font-size: 75%;
+        }
+        .bitcoin_solicitation.mobile-banner .bitcoin-address-action{
+            display: none;
+        } 
+        .bitcoin_solicitation.large-skyscraper{
+            padding-top: 20% ;
+            padding-bottom: 20% ;
+            width: 300px;
+            height: 600px;
+        }
+        .sitename, .smallbitcoin{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar navbar-fixed-top navbar-default" id="navbar-site">
+        <div class="navbar-inner">
+            <div class="container">
+
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">adblock-to-bitcoin</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                  <li class="dropdown currency-dropdown">
+                    <ul class="dropdown-menu">
+                    </ul>
+                  </li>
+                </ul>
+
+             </div>
+         </div>
+    </div>
+
+
+    <div class="container" style="min-height:480px;">
+
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 text-center">
+                        <h1>adblock-to-bitcoin</h1>
+                        <p>Turn adblocked ads into bitcoin donation solicitations</p>
+                        <p><a class="btn btn-primary btn-lg" role="button" href="https://github.com/owocki/adblock-to-bitcoin"><i class="fa fa-github"></i> View on Github</a></p>
+
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <span class="fa-stack" id="bitcoin-icon">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-btc fa-stack fa-inverse fa-stack-1x"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Examples</h2>
+
+        <div class="row example-row">
+            <div class="col-md-8">
+                <h3 class="example-heading">
+                    Example: 728x90 ad
+                </h3>
+                    <div class="ad_container leaderboard">
+                        <script type="text/javascript">
+                            google_ad_client = "ca-pub-4857159268729216";
+                            google_ad_slot = "5108401316";
+                            google_ad_width = 728;
+                            google_ad_height = 90;
+                        </script>
+                        <!-- leaderboard-test -->
+                        <script type="text/javascript"
+                        src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>
+                    </div>
+                    <div class="bitcoin_solicitation leaderboard">
+                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p class="text-center">
+                            <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
+                        </p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="row example-row">
+            <div class="col-md-8">
+                <h3 class="example-heading">
+                    Example: 336x280 ad
+                </h3>
+                    <div class="ad_container large-rectangle">
+                        <script type="text/javascript">
+                            google_ad_client = "ca-pub-4857159268729216";
+                            google_ad_slot = "8642120517";
+                            google_ad_width = 336;
+                            google_ad_height = 280;
+                        </script>
+                        <!-- large-rectangle-test -->
+                        <script type="text/javascript"
+                        src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>                    
+                    </div>
+                    <div class="bitcoin_solicitation large-rectangle">
+                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p class="text-center">
+                            <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
+                        </p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="row example-row" style="height: 250px;">
+            <div class="col-md-8">
+                <h3 class="example-heading">
+                    Example: 320x100 ad
+                </h3>
+                    <div class="ad_container mobile-banner">
+                        <script type="text/javascript">
+                            google_ad_client = "ca-pub-4857159268729216";
+                            google_ad_slot = "1118853712";
+                            google_ad_width = 320;
+                            google_ad_height = 100;
+                        </script>
+                        <!-- mobile-banner-test -->
+                        <script type="text/javascript"
+                        src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>
+                    </div>
+                    <div class="bitcoin_solicitation mobile-banner">
+                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p class="text-center">
+                            <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
+                        </p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="row example-row">
+            <div class="col-md-8">
+                <h3 class="example-heading">
+                    Example: 300x600 ad
+                </h3>
+                    <div class="ad_container large-skyscraper">
+                    <script type="text/javascript">
+                        google_ad_client = "ca-pub-4857159268729216";
+                        google_ad_slot = "2595586917";
+                        google_ad_width = 300;
+                        google_ad_height = 600;
+                    </script>
+                    <!-- large-skyscraper-test -->
+                    <script type="text/javascript"
+                    src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+                    </script>
+                    </div>
+                    <div class="bitcoin_solicitation large-skyscraper">
+                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p class="text-center">
+                            <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
+                        </p>
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <p class="text text-success lead text-center" style="margin-top: 3em">
+                <a href="https://github.com/owocki/adblock-to-bitcoin"><i class="fa fa-github"></i> Visit Github repository for more information</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Use HTML5 templates when they are more widespread http://www.html5rocks.com/en/tutorials/webcomponents/template/ -->
+    <div id="bitcoin-address-template" class="bitcoin-address-container" hidden>
+
+        <div>
+            <span class="bitcoin-address"></span>
+        </div>
+
+        <a href="#" class="bitcoin-address-action bitcoin-address-action-send">
+            <i class="fa fa-btc"></i>
+            Donate from wallet
+        </a>
+
+        <a href="#" class="bitcoin-address-action bitcoin-address-action-copy">
+            <i class="fa fa-copy"></i>
+            Copy Address
+        </a>
+
+        <a href="#" class="bitcoin-address-action bitcoin-address-action-qr">
+            <i class="fa fa-qrcode"></i>
+            View QR code
+        </a>
+
+        <div class="bitcoin-action-hint bitcoin-action-hint-send">
+            Sending payment to the address from locally installed Bitcoin wallet app.
+        </div>
+
+        <div class="bitcoin-action-hint bitcoin-action-hint-copy">
+            Press CTRL + C or &#x2318; + C to copy the Bitcoin address.
+        </div>
+
+        <div class="bitcoin-action-hint bitcoin-action-hint-qr">
+            <p>
+                Scan the QR code with your mobile Bitcoin app to
+                make the payment:
+            </p>
+
+            <div class="bitcoin-address-qr-container">
+                <!-- Filled in by JS on action click -->
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="bitcoinaddress.js/dist/demo.js"></script>
+    <script src="FuckAdBlock/fuckadblock.js"></script>
+
+    <script>
+        function adBlockDetected() {
+            $('.bitcoin_solicitation').addClass('adblock_enabled');
+        }
+        function adBlockNotDetected() {
+        }
+        
+        if(typeof fuckAdBlock === 'undefined') {
+            adBlockDetected();
+        } else {
+            fuckAdBlock.setOption({ debug: true });
+            fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+        }
+        
+        function checkAgain() {
+            $('#fuck-adb-enabled').hide();
+            $('#fuck-adb-not-enabled').hide();
+            // setTimeout 300ms for the recheck is visible when you click on the button
+            setTimeout(function() {
+                if(typeof fuckAdBlock === 'undefined') {
+                    adBlockDetected();
+                } else {
+                    fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+                    fuckAdBlock.check();
+                }
+            }, 300);
+        }
+    </script>
+
+    <!-- We include Bootstrap after demo.js which bundles jQuery -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</body>
