@@ -26,7 +26,7 @@ into
 
 Thesis of this project is that _publishers that have a *loyal* following might be able to get close to PPC unit economics with bitcoin donations_.
 
-While we are building relationships with publishers to test this thesis empirically, I've conducting a rather-unscientific poll suggesting that a small sample of users would be willing to pay for ad-free content, but not if they are forced:
+While we are <a href="http://owocki.com/adblock-to-bitcoin-publishers-wanted/">building relationships with publishers</a> to test this thesis empirically, I've conducting a rather-unscientific poll suggesting that a small sample of users would be willing to pay for ad-free content, but not if they are forced:
 
 <img src='http://bits.owocki.com/0K0T06260C3b/Image%202015-12-10%20at%209.21.28%20AM.png' />
 
