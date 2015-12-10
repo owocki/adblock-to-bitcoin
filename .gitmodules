@@ -1,0 +1,6 @@
+[submodule "bitcoinaddress.js"]
+	path = bitcoinaddress.js
+	url = https://github.com/miohtama/bitcoinaddress.js.git
+[submodule "FuckAdBlock"]
+	path = FuckAdBlock
+	url = https://github.com/sitexw/FuckAdBlock.git

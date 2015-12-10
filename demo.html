@@ -168,7 +168,7 @@
                         </script>
                     </div>
                     <div class="bitcoin_solicitation leaderboard">
-                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p>Hey there!  You have an <strong>ad blocker enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.05" >$0.05</span>.
                         <p class="text-center">
                             <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
                         </p>
@@ -194,7 +194,7 @@
                         </script>                    
                     </div>
                     <div class="bitcoin_solicitation large-rectangle">
-                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p>Hey there!  <strong>You've blocked 384 ads on this site</strong>  <span class="sitename">Owocki.com</span> supports your right to use adblockers, but would you consider supporting the costs of serving <strong>384 articles</strong> via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation (384 articles): <span id="donation-usd" data-usd-amount="0.50" >$0.50</span>.
                         <p class="text-center">
                             <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
                         </p>
@@ -220,7 +220,7 @@
                         </script>
                     </div>
                     <div class="bitcoin_solicitation mobile-banner">
-                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p>Hey there!  You have an <strong>ad blocker enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.05" >$0.05</span>.
                         <p class="text-center">
                             <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
                         </p>
@@ -246,7 +246,7 @@
                     </script>
                     </div>
                     <div class="bitcoin_solicitation large-skyscraper">
-                        <p>Hey there!  You have <strong>ad blocked enabled</strong>.  <span class="sitename">Owocki.com</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation: <span id="donation-usd" data-usd-amount="0.01" >$0.01</span>.
+                        <p>Hey there!  You have an <strong>ad blocker enabled</strong>.  <span class="sitename">Owocki.com</span> is <span style="font-style:italic;">$1000.00</span> away from it's quarterly fundraising goal.  Your donations cover our servers, power, rent, staff, and protect our independence.  Would you consider a <span class="smallbitcoin">small bitcoin donation?</span> Suggested donation (Q4 2015): <span id="donation-usd" data-usd-amount="1.50" >$1.50</span>.
                         <p class="text-center">
                             <strong class="bitcoin-address" data-bc-address="1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE">1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE</strong>
                         </p>
@@ -340,5 +340,18 @@
 
     <!-- We include Bootstrap after demo.js which bundles jQuery -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<script>
+
+// attach the document URL to qr-code generating attributes such that it will be sent by default in bitcoin payments.
+// this will allow publishers to know what content is generating BTC for them.
+$(document).ready(function(){
+    $('.bitcoin-address, .bitcoin-address-container').each(function(e){
+        $(this).attr('data-bc-message',document.location);
+    });
+
+});
+
+</script>
 
 </body>
