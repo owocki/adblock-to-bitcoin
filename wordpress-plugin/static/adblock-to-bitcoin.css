@@ -54,6 +54,7 @@ body {
     display:none;
     background-color: #eee;
     padding: 2px;
+    word-wrap: break-word;
 }
 .bitcoin_solicitation span.hidden{
     display: none !important;
