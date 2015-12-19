@@ -50,7 +50,7 @@ function get_plugin_staticfiles_url(){
 
 function get_js(){
     return '
-    '.(should_display_even_if_adblock_is_off()? '<script type="text/javascript">document.always_show_bitcoin_solicitations=1;</script>).':'').'
+    '.(should_display_even_if_adblock_is_off()? '<script type="text/javascript">document.always_show_bitcoin_solicitations=1;</script>':'').'
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="'.get_plugin_staticfiles_url().'bitcoinaddress.js/dist/demo.js"></script>
     <script src="'.get_plugin_staticfiles_url().'FuckAdBlock/fuckadblock.js"></script>
