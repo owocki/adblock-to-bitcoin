@@ -1,6 +1,10 @@
+# <a href="https://github.com/owocki/adblock-to-bitcoin/blob/master/wordpress-plugin"> Updated 12/19/2015 -- Wordpress Plugin Released</a>
+
 # <a href="http://owocki.com/adblock-to-bitcoin-publishers-wanted/"> Updated 12/10/2015 -- Publishers Wanted</a>
 
 # What
+
+<img src="http://bits.owocki.com/0Y1M132D0O2o/adblock-to-bitcoin.png" >
 
 A project that turns ads into bitcoin donation solicitations when adblock is enabled.  Turns
 
@@ -61,10 +65,10 @@ Demo code is tested with Adblock Plus and uBlock on Google Chrome on a Mac.  Any
 # How you can help
 
 * _Engineer?_ Can you help with cross-browser compatibility and bringing this project to multiple browsers?
-* _Publisher?_ We need DATA!  The thesis behind this project is that for brands that have a loyal following, we might be able to get close to PPC unit economics with bitcoin donations.  [Contact me on twitter](http://twitter.com/owocki)
-* _Data Scientist?_ See above ^^, we need to test different suggested payments / differnet copy to get DATA!
-* _Bitcoin Enthusiast?_ Help us grow the universe ofreal-worlduse cases for BTC.  If you see this tool on a website, donate.
-* _Media/Publishing Enthusiast?_ Help us migrate the publishing industry into the 21st century.  Refer `adblock-to-bitcoin` to a publisher-friend or <a href="#get-in-touch">write about the project</a>. If you see this tool on a website, donate.
+* _Publisher?_ Give adblock-to-bitcoin a try with our [Wordpress Plugin)(https://github.com/owocki/adblock-to-bitcoin/blob/master/wordpress-plugin)]
+* _Data Scientist?_ We need DATA!  The thesis behind this project is brands that have a loyal following could test different suggested payments / different copy, and might be able to get close to PPC unit economics.  [Contact me on twitter](http://twitter.com/owocki)]
+* _Bitcoin Enthusiast?_ Help us grow the universe of real-worlduse cases for BTC.  If you see this tool on a website, donate.
+* _Media/Publishing Enthusiast?_ Help us migrate the publishing industry into the 21st century.  Refer `adblock-to-bitcoin` and our [Wordpress Plugin)(https://github.com/owocki/adblock-to-bitcoin/blob/master/wordpress-plugin)] to a publisher-friend or <a href="#get-in-touch">write about the project</a>. 
 
 # Get in touch
 
