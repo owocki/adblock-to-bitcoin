@@ -145,9 +145,11 @@ class a2bSettings
      */
     public function copy_callback()
     {
+        $is_set = ( $this->options['copy'] && $this->options['copy'] != '');
+        $val =  $is_set ? esc_attr( $this->options['copy']) : get_default_copy();
         printf(
-            '<textarea id="copy" style="width: 500px;" name="a2b_option_group[copy]">%s</textarea>',
-            isset( $this->options['copy'] ) ? esc_attr( $this->options['copy']) : get_default_copy()
+            '<textarea id="copy" style="width: 500px;" name="a2b_option_group[copy]">'.$val.'</textarea>',
+            $val
         );
     }
 
