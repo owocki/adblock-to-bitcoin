@@ -14,8 +14,6 @@
 
 
 /* debug, remove in production */
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 
 require_once  plugin_dir_path( __FILE__ ) . "helpers.php";
