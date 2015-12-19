@@ -65,6 +65,12 @@ body {
     text-decoration: none
 }
 
+.bitcoin_solicitation .poweredby{
+    font-size: 70%;
+    margin-top: 5px;
+}
+
+
 .bitcoin_solicitation.adblock_enabled{
     display:block;
     background-color: #f5f5f5;

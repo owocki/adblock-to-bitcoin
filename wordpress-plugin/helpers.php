@@ -124,6 +124,7 @@ function get_bitcion_solicitation($sol_size='leaderboard'){
         <span class="hidden" id="donation-usd" data-usd-amount="'.$suggested_donation_amount.'" >$'.$suggested_donation_amount.'</span>
         <p class="text-center">
             <strong class="bitcoin-address" data-bc-address="'.$bitcoin_address.'">'.$bitcoin_address.'</strong>
+        <span class="poweredby"> (powered by <a href="https://github.com/owocki/adblock-to-bitcoin">adblock-to-bitcoin</a>)</span>
         </p>
     </div>
                 ';

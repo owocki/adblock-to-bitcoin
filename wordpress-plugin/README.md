@@ -8,7 +8,7 @@ Implements [adblock-to-bitcoin](https://github.com/owocki/adblock-to-bitcoin) na
 
 # Download 
 
-Download plugin [here](http://bits.owocki.com/1l372r1V3D2g/wordpress-plugin.zip).
+Download plugin [here](http://bits.owocki.com/0i451Y1n1V1J/wordpress-plugin.zip).
 
 # How
 
