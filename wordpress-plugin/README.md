@@ -6,6 +6,10 @@
 
 Implements [adblock-to-bitcoin](https://github.com/owocki/adblock-to-bitcoin) natively on a wordpress blog.
 
+# Download 
+
+Download plugin [here](http://bits.owocki.com/1l372r1V3D2g/wordpress-plugin.zip).
+
 # How
 
 1. Install/Activate the plugin.
