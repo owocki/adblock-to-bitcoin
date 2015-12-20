@@ -8,15 +8,16 @@ Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-adblock-to-bitcoin is a wordpress blocks that allows publishers to monetize unused adspace when adblock is on.  
+adblock-to-bitcoin is a wordpress blocks that allows publishers to monetize unused adspace when adblockers are on.  
 
 == Description ==
 
-adblock-to-bitcoin is a wordpress blocks that allows publishers to monetize unused adspace when adblock is on.  It turns ads into bitcoin donation solicitations when adblock is enabled.   
+adblock-to-bitcoin is a wordpress blocks that allows publishers to monetize unused adspace when adblockers are on.  It turns ads into bitcoin donation solicitations when adblockers are enabled.   
 
 * Supports 4 ad sizes natively
 * Allows customized suggested donation amounts.
 * Allows customized ad copy.
+* Supports multiple adblockers.
 
 == Installation ==
 
@@ -55,10 +56,6 @@ adblock-to-bitcoin is a wordpress blocks that allows publishers to monetize unus
 = How much can I expect to monetize with adblock-to-bitcoin? =
 
 I've seen CPMs of over $2.  More details here => http://owocki.com/adblock-to-bitcoin-2-dollar-cpms-via-micropayments/
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
 
 == Screenshots ==
 

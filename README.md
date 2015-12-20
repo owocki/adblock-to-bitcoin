@@ -6,7 +6,7 @@
 
 <img src="http://bits.owocki.com/0Y1M132D0O2o/adblock-to-bitcoin.png" >
 
-A project that turns ads into bitcoin donation solicitations when adblock is enabled.  Turns
+A project that turns ads into bitcoin donation solicitations when adblockers are enabled.  Turns
 
 #### Example 1
 
