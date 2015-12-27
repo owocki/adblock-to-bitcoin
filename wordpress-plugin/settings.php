@@ -45,7 +45,6 @@ class a2bSettings
                 // This prints out all hidden setting fields
                 settings_fields( 'a2b_options' );   
                 do_settings_sections( 'a2b-setting-admin' );
-                //wp_nonce_field( 'admin_page_a2b');
             ?>
                 <input type='hidden' name='a2b_wpnonce' value='<?php echo wp_create_nonce('admin_page_a2b')?>' >
             <?php

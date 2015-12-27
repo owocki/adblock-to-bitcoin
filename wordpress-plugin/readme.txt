@@ -55,7 +55,7 @@ Block Ads to Bitcoin is a wordpress blocks that allows publishers to monetize un
 
 = How much can I expect to monetize with Block Ads to Bitcoin? =
 
-I've seen CPMs of over $2.  More details here => http://owocki.com/Block Ads to Bitcoin-2-dollar-cpms-via-micropayments/
+I've seen CPMs of over $2.  More details here => http://owocki.com/adblock-to-bitcoin-2-dollar-cpms-via-micropayments/
 
 == Screenshots ==
 
@@ -64,6 +64,9 @@ I've seen CPMs of over $2.  More details here => http://owocki.com/Block Ads to 
 3. screenshot-3.png
 
 == Changelog ==
+
+= 0.2 =
+* Wordpress submission guideilnes https://github.com/owocki/adblock-to-bitcoin/pull/4/files
 
 = 0.1 =
 * Plugin MVP
