@@ -40,6 +40,13 @@ class a2bSettings
        ?>
         <div class="wrap">
             <h2>Configuration Settings</h2>           
+            <?php
+            if(!$this->is_active()){
+                ?>
+                <div class="warning" style="padding: 10px; background-color: #ffcc00;">WARNING: This plugin is not active.  To make it active, make sure you have entered (1) a valid bitcoin address, (2) a valid suggested donation amount, and (3) valid ad copy.</div>
+                <?php 
+            }
+            ?>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
@@ -126,7 +133,7 @@ class a2bSettings
         $new_input['powered_by'] =  $input['powered_by'] ;
         $new_input['bitcoin_address'] =  $input['bitcoin_address'] ;
         $new_input['display_always'] =  $input['display_always'] ;
-        $new_input['suggested_donation_amount'] =  ($input['suggested_donation_amount']) ;
+        $new_input['suggested_donation_amount'] =  round($input['suggested_donation_amount'],2) ;
         $new_input['copy'] = ($input['copy']) ;
 
         return $new_input;
@@ -141,14 +148,22 @@ class a2bSettings
     }
 
 
+    public function is_active(){
+        $is_active = is_numeric($this->options['suggested_donation_amount']) &&
+            $this->options['bitcoin_address'] != '<replace-with-wp-authors-bitcoin-address>' &&
+            ( $this->options['copy'] && $this->options['copy'] != '');
+        return $is_active;
+    }
+
     /** 
      * Get the settings option array and print one of its values
      */
     public function bitcoin_address_callback()
     {
+        $is_set = ( $this->options['bitcoin_address'] && $this->options['bitcoin_address'] != '');
         printf(
             '<input type="text" id="bitcoin_address" name="a2b_option_group[bitcoin_address]" value="%s" />',
-            isset( $this->options['bitcoin_address'] ) ? esc_attr( $this->options['bitcoin_address']) : a2b_get_bitcoin_address()
+             $is_set ? esc_attr( $this->options['bitcoin_address']) : a2b_get_bitcoin_address()
         );
     }
 
@@ -171,9 +186,10 @@ class a2bSettings
      */
     public function suggested_donation_amount_callback()
     {
+        $is_set = ( $this->options['suggested_donation_amount'] && $this->options['suggested_donation_amount'] != '');
         printf(
             '$<input type="text" id="suggested_donation_amount" name="a2b_option_group[suggested_donation_amount]" value="%s" />',
-            isset( $this->options['suggested_donation_amount'] ) ? esc_attr( $this->options['suggested_donation_amount']) : '0.50'
+            $is_set ? esc_attr( $this->options['suggested_donation_amount']) : '0.50'
         );
     }
 
