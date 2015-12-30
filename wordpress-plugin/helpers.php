@@ -58,7 +58,6 @@ function a2b_queue_js(){
         wp_enqueue_script( 'always_show', a2b_get_plugin_staticfiles_url().'shared/alwaysshow.js' );
     }
 
-    wp_enqueue_script( 'jquery', a2b_get_plugin_staticfiles_url().'shared/jquery-1.8.1.min.js' );
     wp_enqueue_script( 'always_show', a2b_get_plugin_staticfiles_url().'shared/alwaysshow.js' );
     wp_enqueue_script( 'bitcoinaddress', a2b_get_plugin_staticfiles_url().'bitcoinaddress.js/dist/demo.js' );
     wp_enqueue_script( 'fuckadblock', a2b_get_plugin_staticfiles_url().'FuckAdBlock/fuckadblock.js' );
