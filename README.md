@@ -1,3 +1,5 @@
+# [Updated 1/1/2016 - Install a2b directly from Wordpress Plugin Directory](https://wordpress.org/plugins/block-ads-to-bitcoin/)
+
 # <a href="https://github.com/owocki/adblock-to-bitcoin/blob/master/wordpress-plugin"> Updated 12/19/2015 -- Wordpress Plugin Released</a>
 
 # <a href="http://owocki.com/adblock-to-bitcoin-publishers-wanted/"> Updated 12/10/2015 -- Publishers Wanted</a>
@@ -7,6 +9,10 @@
 <img src="http://bits.owocki.com/0Y1M132D0O2o/adblock-to-bitcoin.png" >
 
 A project that turns ads into bitcoin donation solicitations when adblockers are enabled.  Turns
+
+# Install 
+
+[Install directly from Wordpress Plugin Directory](https://wordpress.org/plugins/block-ads-to-bitcoin/)
 
 #### Example 1
 
