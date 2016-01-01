@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Adblock to Bitcoin
+ * Plugin Name: Block Ads to Bitcoin
  * Plugin URI: https://github.com/owocki/adblock-to-bitcoin/tree/master/wordpress-plugin
  * Description:  A simple way of turning ads into bitcoin donation solicitations when adblock is enabled.  IMPORTANT: Set your bitcoin address in Settings > Block Ads to Bitcoin.
  * Version: 0.2
