@@ -1,16 +1,16 @@
 <?php
 
 
-function get_bitcoin_address(){
+function a2b_get_bitcoin_address(){
     $options = get_option( 'a2b_option_group' );
     $address = $options['bitcoin_address'];
     if(!$address){
-        $address = '1A3KJ7f3YAS9jvhPjotLEzEMd1dNKZ9EPE';
+        $address = '<replace-with-wp-authors-bitcoin-address>';
     }
     return $address;
 }
 
-function get_suggested_donation_amount(){
+function a2b_get_suggested_donation_amount(){
     $options = get_option( 'a2b_option_group' );
     $suggested_donation_amount = $options['suggested_donation_amount'];
     if(!$suggested_donation_amount){
@@ -19,55 +19,58 @@ function get_suggested_donation_amount(){
     return $suggested_donation_amount;
 }
 
-function get_default_copy($sol_size=False){
-    $suggested_donation_amount = get_suggested_donation_amount();
+function a2b_get_default_copy($sol_size=False){
+    $suggested_donation_amount = a2b_get_suggested_donation_amount();
     $copy = 'Hey there!  You have an <strong>ad blocker enabled</strong>.  <span class="sitename">'.get_bloginfo('name').'</span> supports your right to do so, but would you consider supporting our costs via a <span class="smallbitcoin">small bitcoin donation?</span> 
         Suggested donation: $'.$suggested_donation_amount.' .';
     return $copy;
 }
 
 
-function get_copy($sol_size){
+function a2b_get_copy($sol_size){
     $options = get_option( 'a2b_option_group' );
     $copy = $options['copy'];
     if(!$copy){
-        $copy=get_default_copy($sol_size);
+        $copy=a2b_get_default_copy($sol_size);
     }
     return $copy;
 }
 
 
-function should_display_even_if_adblock_is_off(){
+function a2b_should_display_even_if_adblock_is_off(){
     $options = get_option( 'a2b_option_group' );
     return (bool)$options['display_always'];
 }
 
-
-function get_plugin_staticfiles_url(){
-    return get_site_url().'/wp-content/plugins/adblock-to-bitcoin/static/';
+function a2b_display_powered_by(){
+    $options = get_option( 'a2b_option_group' );
+    return (bool)$options['powered_by'];
 }
 
 
-function get_js(){
-    return '
-    '.(should_display_even_if_adblock_is_off()? '<script type="text/javascript">document.always_show_bitcoin_solicitations=1;</script>':'').'
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="'.get_plugin_staticfiles_url().'bitcoinaddress.js/dist/demo.js"></script>
-    <script src="'.get_plugin_staticfiles_url().'FuckAdBlock/fuckadblock.js"></script>
-    <script src="'.get_plugin_staticfiles_url().'adblock-to-bitcoin.js"></script>
-    ';
-
+function a2b_get_plugin_staticfiles_url(){
+    return plugin_dir_url( __FILE__ ).'static/' ;
 }
 
-function get_css(){
-    return '
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="'.get_plugin_staticfiles_url().'adblock-to-bitcoin.css" rel="stylesheet">
-    ';
 
+function a2b_queue_js(){
+    if(a2b_should_display_even_if_adblock_is_off()){
+        wp_enqueue_script( 'always_show', a2b_get_plugin_staticfiles_url().'shared/alwaysshow.js' );
+    }
+
+    wp_enqueue_script( 'always_show', a2b_get_plugin_staticfiles_url().'shared/alwaysshow.js' );
+    wp_enqueue_script( 'bitcoinaddress', a2b_get_plugin_staticfiles_url().'bitcoinaddress.js/dist/demo.js' );
+    wp_enqueue_script( 'fuckadblock', a2b_get_plugin_staticfiles_url().'FuckAdBlock/fuckadblock.js' );
+    wp_enqueue_script( 'bootstrap', a2b_get_plugin_staticfiles_url().'shared/bootstrap.min.js' );
+    wp_enqueue_script( 'a2b', a2b_get_plugin_staticfiles_url().'adblock-to-bitcoin.js' );
 }
 
-function get_bitcoin_address_template(){
+function a2b_queue_css(){
+    wp_enqueue_style('font-awesome',a2b_get_plugin_staticfiles_url().'shared/font-awesome.css');
+    wp_enqueue_style('a2b',a2b_get_plugin_staticfiles_url().'adblock-to-bitcoin.css');
+}
+
+function a2b_get_bitcoin_address_template(){
 return '
     <!-- Use HTML5 templates when they are more widespread http://www.html5rocks.com/en/tutorials/webcomponents/template/ -->
     <div id="bitcoin-address-template" class="bitcoin-address-container" hidden>
@@ -114,35 +117,35 @@ return '
     ';
 }
 
-function get_bitcion_solicitation($sol_size='leaderboard'){
-    $suggested_donation_amount = get_suggested_donation_amount();
-    $bitcoin_address = get_bitcoin_address();
-    $copy = get_copy($sol_size);
+function a2b_get_bitcion_solicitation($sol_size='leaderboard'){
+    $suggested_donation_amount = a2b_get_suggested_donation_amount();
+    $bitcoin_address = a2b_get_bitcoin_address();
+    $copy = a2b_get_copy($sol_size);
     return '
     <div class="bitcoin_solicitation '.$sol_size.'">
         <p>'.$copy.'
         <span class="hidden" id="donation-usd" data-usd-amount="'.$suggested_donation_amount.'" >$'.$suggested_donation_amount.'</span>
         <p class="text-center">
             <strong class="bitcoin-address" data-bc-address="'.$bitcoin_address.'">'.$bitcoin_address.'</strong>
-        <span class="poweredby"> (powered by <a href="https://github.com/owocki/adblock-to-bitcoin">adblock-to-bitcoin</a>)</span>
+        ' . (a2b_display_powered_by() ? '<span class="poweredby"> (powered by <a href="https://github.com/owocki/adblock-to-bitcoin">adblock-to-bitcoin</a>)</span>' : '') .'
         </p>
     </div>
                 ';
 }
 
 function a2b_leaderboard(){
-    return get_bitcion_solicitation('leaderboard');
+    return a2b_get_bitcion_solicitation('leaderboard');
 }
 
 function a2b_large_rectangle(){
-    return get_bitcion_solicitation('large-rectangle');
+    return a2b_get_bitcion_solicitation('large-rectangle');
 }
 
 function a2b_mobile_banner(){
-    return get_bitcion_solicitation('mobile-banner');
+    return a2b_get_bitcion_solicitation('mobile-banner');
 }
 function a2b_large_skyscraper(){
-    return get_bitcion_solicitation('large-skyscraper');
+    return a2b_get_bitcion_solicitation('large-skyscraper');
 }
 
 ?>

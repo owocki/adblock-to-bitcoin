@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Adblock to Bitcoin
- * Plugin URI: https://github.com/owocki/adblock-to-bitcoin
- * Description:  A simple way of turning ads into bitcoin donation solicitations when adblock is enabled.  IMPORTANT: Set your bitcoin address in Settings > adblock-to-bitcoin.
- * Version: 0.1
+ * Plugin Name: Block Ads to Bitcoin
+ * Plugin URI: https://github.com/owocki/adblock-to-bitcoin/tree/master/wordpress-plugin
+ * Description:  A simple way of turning ads into bitcoin donation solicitations when adblock is enabled.  IMPORTANT: Set your bitcoin address in Settings > Block Ads to Bitcoin.
+ * Version: 0.2
  * Author: owocki
  * Author URI: http://owocki.com
  *
@@ -19,25 +19,15 @@
 require_once  plugin_dir_path( __FILE__ ) . "helpers.php";
 require_once  plugin_dir_path( __FILE__ ) . "settings.php";
 
-function a2b_add_header() {
-    global $post;
-    if (!isset($post)) return;
-    echo "<!-- start adblock-to-bitcoin -->";
-    echo get_css();
-    echo "<!-- end adblock-to-bitcoin -->";
-}
 
 function a2b_add_script_footer() {
     global $post;
     if (!isset($post)) return;
 
-    echo "<!-- start adblock-to-bitcoin -->";
-    echo get_js();
-    echo get_bitcoin_address_template();
-    echo "<!-- end adblock-to-bitcoin -->";
+    echo a2b_get_bitcoin_address_template();
 }
-add_action('wp_head', 'a2b_add_header');
 add_action('wp_footer', 'a2b_add_script_footer');
-
+add_action( 'wp_enqueue_scripts', 'a2b_queue_css' );
+add_action( 'wp_enqueue_scripts', 'a2b_queue_js' );
 
 ?>
