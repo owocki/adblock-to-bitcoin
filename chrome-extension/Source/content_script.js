@@ -1,15 +1,34 @@
 ad_ids = [ 'rhs_block', // google right hand side
     'tads', // google top ads
     'pagelet_ego_pane', //facebook right hand side
-    'add', //google adsense
+    'ad', //google adsense
     ]
 ad_classes = [ 'ego_column', //facebook right hand side
     'ego_unit_container', //facebook right hand side 
     'adfuel-rendered', //cnn, right hand side
+    'ad', //google adsense
      ]
-
+partial_ids=['google_ads_iframe_', //google ad
+]
+partial_classes=['google_ads_iframe_', //google ad
+]
 
 function render_bitcoin_solicitation(ele){
+    if(ele.className.indexOf('a2b_me') > -1){
+        return;
+    }
+    var width = ele.offsetWidth;
+    var height = ele.offsetHeight;
+    if(width < 100 || height< 100){
+        ele.innerHTML = '';
+        return;
+    }
+    if(document.adcount> 2){ //only display 3 bitcoin solicitations per page.  
+        ele.innerHTML = '';
+        return;
+    }
+    document.adcount++;
+
     var bat = document.createElement("div");
     bat.innerHTML = '<div id="bitcoin-address-template" class="bitcoin-address-container" hidden>' + 
         '' + 
@@ -54,10 +73,10 @@ function render_bitcoin_solicitation(ele){
         '</div>';
     document.getElementsByTagName('body')[0].appendChild(bat);
 
-    var width = ele.offsetWidth;
-    var height = ele.offsetHeight;
-
-    var padding_top="0px";
+    if(height<200){
+        height = 200;
+    }
+    var padding_top="20px";
     if(height>330){
         padding_top=parseInt((height-330)/2)+"px";
     }
@@ -94,8 +113,33 @@ function blockClasses(element, index, array){
     }
 }
 
-ad_ids.forEach(blockIds);
-ad_classes.forEach(blockClasses);
+document.adcount = 0;
+function check_for_ads(){
+    //whole classes
+    ad_ids.forEach(blockIds);
+    ad_classes.forEach(blockClasses);
 
+    //partial ids
+    for (var i = 0; i < partial_ids.length; i++) {
+        partial_id = partial_ids[i]
+        var eles = $('[id*="'+partial_id+'"]')
+        for (var k = 0; k < eles.length; k++) {
+            var ele = eles[k];
+            render_bitcoin_solicitation(ele);
+        }
+    }
+
+    //partial classes
+    for (var i = 0; i < partial_classes.length; i++) {
+        partial_class = partial_classes[i]
+        var eles = $('[id*="'+partial_class+'"]')
+        for (var k = 0; k < eles.length; k++) {
+            var ele = eles[k];
+            render_bitcoin_solicitation(ele);
+        }
+    }
+    setTimeout(check_for_ads,1000);
+}
+check_for_ads();
 
 

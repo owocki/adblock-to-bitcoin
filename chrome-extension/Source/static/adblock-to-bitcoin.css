@@ -21,6 +21,7 @@ body {
 .bitcoin-address-qr-container > img,
 .bitcoin-address-qr-container > canvas {
     margin: 0 auto;
+    max-width: 200px;
 }
 
 /* bitcoinprices.js -  for bitcoinprices, donation nominated in USD */

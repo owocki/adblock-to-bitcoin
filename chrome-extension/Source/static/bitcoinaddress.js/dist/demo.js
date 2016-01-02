@@ -309,6 +309,8 @@ var $ = require("jquery/dist/jquery")(window);
 var bitcoinprices = require("bitcoinprices");
 var bitcoinaddress = require("./bitcoinaddress");
 
+document.bitcoinaddress = bitcoinaddress;
+
 $(document).ready(function() {
 
     // Basic initialization
