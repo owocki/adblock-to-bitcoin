@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "Block Ads to Bitcoin",
-	"version": "0.2",
-	"description": "Block Ads to Bitcoin is an ethcial ad blocker. This chrome extension (1) adblocks ads and (2) allows users to send bitcoin.",
+	"name": "Noble AdBlocker",
+	"version": "0.21",
+	"description": "Noble AdBlocker is an ethcial ad blocker. This chrome extension (1) adblocks ads and (2) allows donate bitcoin to publishers.",
 	"web_accessible_resources": [ "static/fonts/*", "static/fonts/fontawesome-webfont.woff" ],
 	"icons": { "16": "icon16.png",
            "48": "icon48.png",
