@@ -1,3 +1,5 @@
+# [Updated 1/2/2016 - Install a2b directly on your browser with the a2b Chrome Extension](https://github.com/owocki/adblock-to-bitcoin/tree/master/chrome-extension)
+
 # [Updated 1/1/2016 - Install a2b directly from Wordpress Plugin Directory](https://wordpress.org/plugins/block-ads-to-bitcoin/)
 
 # <a href="https://github.com/owocki/adblock-to-bitcoin/blob/master/wordpress-plugin"> Updated 12/19/2015 -- Wordpress Plugin Released</a>

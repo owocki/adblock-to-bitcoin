@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+	"name": "Block Ads to Bitcoin",
+	"version": "0.1",
+	"description": "Block Ads to Bitcoin is an ethcial ad blocker. This chrome extension (1) adblocks ads and (2) allows users to send bitcoin.",
+	"web_accessible_resources": [ "static/fonts/*", "static/fonts/fontawesome-webfont.woff" ],
+	"icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
+	"content_scripts": 
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["static/jquery.min.js", "static/shared/bootstrap.min.js", "static/bitcoinaddress.js/dist/demo.js", "content_script.js"],
+			"css": ["static/adblock-to-bitcoin.css", "static/shared/font-awesome.css"],
+			"run_at": "document_end"
+		}
+	]
+}
